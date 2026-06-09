@@ -1,4 +1,4 @@
-# Simuladoe de decisoes
+# Simulador de decisoes
 um progama que te ajuda a tomar decisoes focado principalmente em celulares 
 # Integrantes
 Guilherme Prado de Oliveira, RA: 1012510113 \
