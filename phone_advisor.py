@@ -12,6 +12,7 @@ ctk.set_default_color_theme("blue")
 PROFILES_FILE = "phone_profiles.json"
 
 # ─── Base de dados de celulares reais ───────────────────────────────────
+# caso queira adicionar mais celulares copie e cole a parte "name" ate "image_color" ponha a cor e iformaçao
 PHONES_DB = [
     {
         "name": "iPhone 15 Pro Max",
@@ -463,6 +464,427 @@ PHONES_DB = [
         "cons": ["Câmera não é destaque", "Realme UI com muitos apps", "Suporte menor que as grandes marcas"],
         "image_color": "#1A2E1A",
     },
+    # ── Novos celulares adicionados ──────────────────────────────────────
+    {
+        "name": "Samsung Galaxy S25 Ultra",
+        "brand": "Samsung",
+        "price": 10999,
+        "specs": {
+            "processor": "Snapdragon 8 Elite",
+            "processor_score": 100,
+            "camera_mp": 200,
+            "camera_score": 98,
+            "battery_mah": 5000,
+            "battery_score": 89,
+            "storage_gb": 256,
+            "ram_gb": 12,
+            "display": "6.9\" Dynamic AMOLED 2X 120Hz",
+            "weight_g": 218,
+            "os": "Android 15 / One UI 7",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 98, "estudos": 95, "profissional": 99, "conteudo": 99},
+        "highlights": [
+            "Snapdragon 8 Elite — processador mais potente do mundo",
+            "Câmera 200MP com IA generativa avançada",
+            "S Pen integrada com latência ultrabaixa",
+            "7 anos de atualizações garantidas",
+            "Galaxy AI de última geração",
+        ],
+        "pros": ["Processador imbatível", "Câmera com IA top", "S Pen integrada", "Suporte 7 anos"],
+        "cons": ["Preço muito elevado", "Pesado", "Carregamento 45W apenas"],
+        "image_color": "#101A2E",
+    },
+    {
+        "name": "iPhone 16 Pro Max",
+        "brand": "Apple",
+        "price": 12999,
+        "specs": {
+            "processor": "Apple A18 Pro",
+            "processor_score": 100,
+            "camera_mp": 48,
+            "camera_score": 99,
+            "battery_mah": 4685,
+            "battery_score": 88,
+            "storage_gb": 256,
+            "ram_gb": 8,
+            "display": "6.9\" Super Retina XDR OLED 120Hz",
+            "weight_g": 227,
+            "os": "iOS 18",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 98, "estudos": 92, "profissional": 97, "conteudo": 99},
+        "highlights": [
+            "Chip A18 Pro — melhor do mercado para Apple Intelligence",
+            "Câmera 48MP com zoom tetra-prisma 5x",
+            "Gravação ProRes 4K a 120fps",
+            "Botão Camera Control dedicado",
+            "Apple Intelligence com IA generativa",
+        ],
+        "pros": ["Melhor câmera de vídeo", "Apple Intelligence nativo", "Tela maior da linha Pro", "Ecossistema Apple"],
+        "cons": ["Preço altíssimo", "Bateria não revolucionária", "Sem carregador na caixa"],
+        "image_color": "#1C1A10",
+    },
+    {
+        "name": "Motorola Edge 50 Ultra",
+        "brand": "Motorola",
+        "price": 4299,
+        "specs": {
+            "processor": "Snapdragon 8s Gen 3",
+            "processor_score": 91,
+            "camera_mp": 50,
+            "camera_score": 84,
+            "battery_mah": 4500,
+            "battery_score": 89,
+            "storage_gb": 512,
+            "ram_gb": 12,
+            "display": "6.67\" pOLED 165Hz",
+            "weight_g": 182,
+            "os": "Android 14",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 85, "estudos": 84, "profissional": 83, "conteudo": 84},
+        "highlights": [
+            "Display pOLED 165Hz — dos mais fluidos do mercado",
+            "512GB de armazenamento nativo",
+            "Carregamento 125W + wireless 50W",
+            "Leve e fino com design premium",
+            "Android limpo sem bloatwares",
+        ],
+        "pros": ["Display 165Hz incrível", "512GB nativo", "Carregamento 125W", "Leve para o tamanho"],
+        "cons": ["Câmera não é top", "Processador intermediário-alto", "Bateria 4500mAh apenas"],
+        "image_color": "#1A0E2E",
+    },
+    {
+        "name": "Xiaomi Redmi Note 14 Pro+",
+        "brand": "Xiaomi",
+        "price": 2599,
+        "specs": {
+            "processor": "Snapdragon 7s Gen 3",
+            "processor_score": 79,
+            "camera_mp": 200,
+            "camera_score": 81,
+            "battery_mah": 6200,
+            "battery_score": 97,
+            "storage_gb": 256,
+            "ram_gb": 12,
+            "display": "6.67\" AMOLED 120Hz",
+            "weight_g": 210,
+            "os": "Android 14 / HyperOS",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 74, "estudos": 83, "profissional": 73, "conteudo": 78},
+        "highlights": [
+            "Bateria de 6200mAh — maior autonomia da categoria",
+            "Câmera de 200MP por preço acessível",
+            "Carregamento 90W ultrarrápido",
+            "IP68 — resistência total à água",
+            "Display AMOLED 120Hz brilhante",
+        ],
+        "pros": ["Bateria gigantesca", "IP68 resistente", "200MP acessível", "Carga 90W rápida"],
+        "cons": ["Processador intermediário", "HyperOS pode ter bloatwares", "Câmera real limitada"],
+        "image_color": "#0A1A2A",
+    },
+    {
+        "name": "Samsung Galaxy A35 5G",
+        "brand": "Samsung",
+        "price": 1899,
+        "specs": {
+            "processor": "Exynos 1380",
+            "processor_score": 68,
+            "camera_mp": 50,
+            "camera_score": 72,
+            "battery_mah": 5000,
+            "battery_score": 87,
+            "storage_gb": 128,
+            "ram_gb": 6,
+            "display": "6.6\" Super AMOLED 120Hz",
+            "weight_g": 210,
+            "os": "Android 14 / One UI 6.1",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 65, "estudos": 79, "profissional": 70, "conteudo": 69},
+        "highlights": [
+            "4 anos de atualizações Samsung garantidas",
+            "IP67 — resistência à água por preço baixo",
+            "Display Super AMOLED vibrante",
+            "Confiabilidade Samsung com preço acessível",
+            "5G integrado na faixa de R$1900",
+        ],
+        "pros": ["IP67 no preço", "4 anos de updates", "Display AMOLED", "Marca confiável"],
+        "cons": ["Processador fraco para jogos", "128GB base", "Carregamento lento 25W"],
+        "image_color": "#0D1A30",
+    },
+    {
+        "name": "Poco X6 Pro",
+        "brand": "Xiaomi/Poco",
+        "price": 2299,
+        "specs": {
+            "processor": "MediaTek Dimensity 8300 Ultra",
+            "processor_score": 87,
+            "camera_mp": 64,
+            "camera_score": 74,
+            "battery_mah": 5000,
+            "battery_score": 88,
+            "storage_gb": 256,
+            "ram_gb": 12,
+            "display": "6.67\" AMOLED 120Hz",
+            "weight_g": 186,
+            "os": "Android 14 / MIUI 14",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 88, "estudos": 77, "profissional": 72, "conteudo": 71},
+        "highlights": [
+            "Dimensity 8300 Ultra — processador top por preço intermediário",
+            "Melhor smartphone para games abaixo de R$2500",
+            "Display AMOLED 120Hz",
+            "256GB de armazenamento",
+            "Bateria 5000mAh com carga 67W",
+        ],
+        "pros": ["Melhor processador da categoria", "Ótimo para games", "256GB nativo", "Preço atrativo"],
+        "cons": ["Câmera básica", "MIUI com bloatwares", "Design simples"],
+        "image_color": "#2A0E1A",
+    },
+    {
+        "name": "Motorola Moto G85",
+        "brand": "Motorola",
+        "price": 1699,
+        "specs": {
+            "processor": "Snapdragon 6 Gen 1",
+            "processor_score": 65,
+            "camera_mp": 50,
+            "camera_score": 68,
+            "battery_mah": 5000,
+            "battery_score": 85,
+            "storage_gb": 256,
+            "ram_gb": 8,
+            "display": "6.67\" pOLED 120Hz",
+            "weight_g": 171,
+            "os": "Android 14",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 62, "estudos": 77, "profissional": 68, "conteudo": 67},
+        "highlights": [
+            "Display pOLED 120Hz raridade no preço",
+            "Leve com apenas 171g",
+            "256GB de armazenamento incluso",
+            "Android praticamente limpo",
+            "Excelente custo-benefício básico",
+        ],
+        "pros": ["pOLED no preço", "Leve e fino", "256GB nativo", "Android limpo"],
+        "cons": ["Processador limitado", "Câmera básica", "Sem carregamento rápido potente"],
+        "image_color": "#1A2A3A",
+    },
+    {
+        "name": "OnePlus 13",
+        "brand": "OnePlus",
+        "price": 6299,
+        "specs": {
+            "processor": "Snapdragon 8 Elite",
+            "processor_score": 100,
+            "camera_mp": 50,
+            "camera_score": 88,
+            "battery_mah": 6000,
+            "battery_score": 97,
+            "storage_gb": 256,
+            "ram_gb": 12,
+            "display": "6.82\" LTPO AMOLED 120Hz",
+            "weight_g": 210,
+            "os": "Android 15 / OxygenOS 15",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 98, "estudos": 87, "profissional": 87, "conteudo": 87},
+        "highlights": [
+            "Snapdragon 8 Elite com resfriamento superior",
+            "Bateria 6000mAh com carga 100W ultrarrápida",
+            "Melhor custo-benefício flagship de 2025",
+            "IP65 resistência à poeira e água",
+            "Câmera Hasselblad calibrada profissionalmente",
+        ],
+        "pros": ["Processador topo de linha", "Bateria enorme 6000mAh", "Carga 100W", "Melhor custo-benefício"],
+        "cons": ["Câmera não é top 3", "Marca menos conhecida no Brasil", "UI pode ser pesada"],
+        "image_color": "#0A2010",
+    },
+    {
+        "name": "iPhone 16",
+        "brand": "Apple",
+        "price": 6499,
+        "specs": {
+            "processor": "Apple A18",
+            "processor_score": 96,
+            "camera_mp": 48,
+            "camera_score": 92,
+            "battery_mah": 3561,
+            "battery_score": 78,
+            "storage_gb": 128,
+            "ram_gb": 8,
+            "display": "6.1\" Super Retina XDR OLED 60Hz",
+            "weight_g": 170,
+            "os": "iOS 18",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 90, "estudos": 90, "profissional": 88, "conteudo": 90},
+        "highlights": [
+            "Apple Intelligence integrado nativo",
+            "Chip A18 com suporte total a IA",
+            "Botão Camera Control exclusivo",
+            "O iPhone mais leve e compacto",
+            "Ecossistema Apple completo",
+        ],
+        "pros": ["Apple Intelligence", "Compacto e leve", "Camera Control", "Performance sólida"],
+        "cons": ["60Hz no display", "Bateria pequena", "128GB base", "Preço alto para o tier"],
+        "image_color": "#203040",
+    },
+    {
+        "name": "Samsung Galaxy Z Flip 6",
+        "brand": "Samsung",
+        "price": 7999,
+        "specs": {
+            "processor": "Snapdragon 8 Gen 3",
+            "processor_score": 97,
+            "camera_mp": 50,
+            "camera_score": 82,
+            "battery_mah": 4000,
+            "battery_score": 74,
+            "storage_gb": 256,
+            "ram_gb": 12,
+            "display": "6.7\" Dynamic AMOLED 120Hz dobrável",
+            "weight_g": 187,
+            "os": "Android 14 / One UI 6.1.1",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 82, "estudos": 80, "profissional": 84, "conteudo": 88},
+        "highlights": [
+            "Design flip que cabe em qualquer bolso",
+            "Tela externa 3.4\" FlexWindow útil",
+            "Snapdragon 8 Gen 3 topo de linha",
+            "Fotos únicas com ângulos criativos",
+            "Ideal para quem busca estilo diferenciado",
+        ],
+        "pros": ["Design único e compacto", "Performance flagship", "Estilo diferenciado", "Tela externa funcional"],
+        "cons": ["Bateria fraca 4000mAh", "Câmera básica para o preço", "Durabilidade da dobradiça"],
+        "image_color": "#2A0A2A",
+    },
+    {
+        "name": "Xiaomi 14T Pro",
+        "brand": "Xiaomi",
+        "price": 5999,
+        "specs": {
+            "processor": "MediaTek Dimensity 9300+",
+            "processor_score": 96,
+            "camera_mp": 50,
+            "camera_score": 92,
+            "battery_mah": 5000,
+            "battery_score": 93,
+            "storage_gb": 512,
+            "ram_gb": 12,
+            "display": "6.67\" AMOLED 144Hz",
+            "weight_g": 209,
+            "os": "Android 14 / HyperOS",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 94, "estudos": 86, "profissional": 87, "conteudo": 93},
+        "highlights": [
+            "Câmera Leica com 3 lentes otimizadas",
+            "Carregamento 120W + wireless 50W",
+            "Display 144Hz para máxima fluidez",
+            "512GB de armazenamento nativo",
+            "Dimensity 9300+ de altíssima performance",
+        ],
+        "pros": ["Câmera Leica excelente", "512GB nativo", "Carga 120W", "Display 144Hz"],
+        "cons": ["HyperOS com bloatwares", "Câmera grande", "Suporte menor que Apple/Samsung"],
+        "image_color": "#1A2A10",
+    },
+    {
+        "name": "Google Pixel 9",
+        "brand": "Google",
+        "price": 5499,
+        "specs": {
+            "processor": "Google Tensor G4",
+            "processor_score": 85,
+            "camera_mp": 50,
+            "camera_score": 94,
+            "battery_mah": 4700,
+            "battery_score": 85,
+            "storage_gb": 128,
+            "ram_gb": 12,
+            "display": "6.3\" OLED 120Hz",
+            "weight_g": 198,
+            "os": "Android 15",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 78, "estudos": 91, "profissional": 89, "conteudo": 95},
+        "highlights": [
+            "Computação fotográfica de ponta — melhor câmera por software",
+            "Android 15 puro com updates garantidos",
+            "Gemini AI integrado nativamente",
+            "Magic Editor e ferramentas IA exclusivas",
+            "7 anos de atualizações garantidas",
+        ],
+        "pros": ["Melhor câmera por software", "Gemini AI nativo", "Android limpo", "7 anos de updates"],
+        "cons": ["Tensor G4 menos potente em games", "128GB base apenas", "Pouco popular no Brasil"],
+        "image_color": "#1A3A2E",
+    },
+    {
+        "name": "Motorola Moto G55 5G",
+        "brand": "Motorola",
+        "price": 1299,
+        "specs": {
+            "processor": "MediaTek Dimensity 7025",
+            "processor_score": 58,
+            "camera_mp": 50,
+            "camera_score": 62,
+            "battery_mah": 5000,
+            "battery_score": 83,
+            "storage_gb": 128,
+            "ram_gb": 8,
+            "display": "6.49\" IPS LCD 120Hz",
+            "weight_g": 179,
+            "os": "Android 14",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 55, "estudos": 72, "profissional": 62, "conteudo": 58},
+        "highlights": [
+            "5G mais barato do mercado",
+            "Bateria 5000mAh de longa duração",
+            "Android limpo sem bloatwares",
+            "Leve e confortável no dia a dia",
+            "Ideal para uso básico e comunicação",
+        ],
+        "pros": ["5G mais acessível", "Bateria boa", "Android limpo", "Leve e confortável"],
+        "cons": ["Processador muito básico", "Câmera simples", "Sem AMOLED"],
+        "image_color": "#152030",
+    },
+    {
+        "name": "Samsung Galaxy A16 5G",
+        "brand": "Samsung",
+        "price": 1199,
+        "specs": {
+            "processor": "Exynos 1330",
+            "processor_score": 60,
+            "camera_mp": 50,
+            "camera_score": 63,
+            "battery_mah": 5000,
+            "battery_score": 84,
+            "storage_gb": 128,
+            "ram_gb": 4,
+            "display": "6.7\" Super AMOLED 90Hz",
+            "weight_g": 200,
+            "os": "Android 14 / One UI 6",
+            "5g": True,
+        },
+        "use_scores": {"jogos": 56, "estudos": 74, "profissional": 63, "conteudo": 60},
+        "highlights": [
+            "Super AMOLED no preço mais baixo do mercado",
+            "6 anos de atualizações Samsung garantidas",
+            "5G acessível com marca confiável",
+            "Bateria 5000mAh duradoura",
+            "Design moderno e resistente",
+        ],
+        "pros": ["AMOLED baratíssimo", "6 anos de updates Samsung", "5G acessível", "Marca confiável"],
+        "cons": ["4GB RAM limitado", "Processador básico", "Carregamento 25W"],
+        "image_color": "#0A1520",
+    },
 ]
 
 USE_CASES = {
@@ -473,11 +895,13 @@ USE_CASES = {
 }
 
 
-def score_phone(phone, use_case, max_price):
+def score_phone(phone, use_case, max_price, custom_weights=None):
     specs = phone["specs"]
     storage_score = min(100, (specs["storage_gb"] / 512) * 100)
-    use_scores = phone["use_scores"]
-    weights = USE_CASES[use_case]["weights"]
+    if custom_weights is not None:
+        weights = custom_weights
+    else:
+        weights = USE_CASES[use_case]["weights"]
     total = (
         specs["processor_score"] * weights["processor_score"]
         + specs["battery_score"] * weights["battery_score"]
@@ -490,11 +914,11 @@ def score_phone(phone, use_case, max_price):
     return round(total + value_bonus, 1)
 
 
-def get_recommendations(max_price, use_case, top_n=5):
+def get_recommendations(max_price, use_case, top_n=5, custom_weights=None):
     eligible = [p for p in PHONES_DB if p["price"] <= max_price]
     if not eligible:
         return []
-    scored = [(p, score_phone(p, use_case, max_price)) for p in eligible]
+    scored = [(p, score_phone(p, use_case, max_price, custom_weights)) for p in eligible]
     scored.sort(key=lambda x: x[1], reverse=True)
     return scored[:top_n]
 
@@ -548,7 +972,16 @@ class PhoneAdvisorApp(ctk.CTk):
         self.price_var = ctk.IntVar(value=6000)
         self.comparing = []
 
+        # Sliders de peso personalizados (0–100, normalizados na busca)
+        self.w_processor = ctk.IntVar(value=40)
+        self.w_battery = ctk.IntVar(value=25)
+        self.w_camera = ctk.IntVar(value=10)
+        self.w_storage = ctk.IntVar(value=25)
+        self._use_custom_weights = ctk.BooleanVar(value=False)
+
         self._build_ui()
+        # Inicializa sliders com pesos do perfil padrão
+        self._load_preset_weights("jogos")
 
     # ─── UI principal ─────────────────────────────────────────────────
     def _build_ui(self):
@@ -591,9 +1024,16 @@ class PhoneAdvisorApp(ctk.CTk):
         self._build_right_panel(main)
 
     def _build_left_panel(self, parent):
-        panel = ctk.CTkFrame(parent, fg_color=COLORS["bg_card"], corner_radius=16, width=310)
-        panel.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
-        panel.grid_propagate(False)
+        outer = ctk.CTkFrame(parent, fg_color=COLORS["bg_card"], corner_radius=16, width=320)
+        outer.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        outer.grid_propagate(False)
+        outer.columnconfigure(0, weight=1)
+        outer.rowconfigure(0, weight=1)
+
+        panel = ctk.CTkScrollableFrame(outer, fg_color="transparent", corner_radius=0,
+                                       scrollbar_button_color=COLORS["border"],
+                                       scrollbar_button_hover_color=COLORS["accent"])
+        panel.grid(row=0, column=0, sticky="nsew", padx=0, pady=0)
         panel.columnconfigure(0, weight=1)
 
         ctk.CTkLabel(panel, text="⚙️  Configurar Busca", font=ctk.CTkFont(size=16, weight="bold"),
@@ -636,24 +1076,64 @@ class PhoneAdvisorApp(ctk.CTk):
             btn.pack(fill="x", padx=10, pady=3)
             self.use_btns[key] = btn
 
-        # ── Pesos das specs
+        # ── Pesos personalizados com sliders
         weights_frame = ctk.CTkFrame(panel, fg_color=COLORS["bg_card2"], corner_radius=12)
         weights_frame.grid(row=3, column=0, padx=12, pady=6, sticky="ew")
-        ctk.CTkLabel(weights_frame, text="📊  Critérios do uso selecionado",
-                     font=ctk.CTkFont(size=13, weight="bold"), text_color=COLORS["accent"]).pack(anchor="w", padx=12, pady=(10, 4))
 
-        self.weight_labels = {}
-        for crit, label in [("processor_score", "🔥 Desempenho"), ("camera_score", "📸 Câmera"),
-                             ("battery_score", "🔋 Bateria"), ("storage_score", "💾 Armazenamento")]:
+        title_row = ctk.CTkFrame(weights_frame, fg_color="transparent")
+        title_row.pack(fill="x", padx=12, pady=(10, 4))
+        ctk.CTkLabel(title_row, text="🎚️  Pesos dos Critérios",
+                     font=ctk.CTkFont(size=13, weight="bold"), text_color=COLORS["accent"]).pack(side="left")
+
+        self.custom_chk = ctk.CTkCheckBox(
+            title_row, text="Personalizar", variable=self._use_custom_weights,
+            font=ctk.CTkFont(size=10), text_color=COLORS["text_muted"],
+            checkbox_width=16, checkbox_height=16,
+            fg_color=COLORS["accent"], hover_color=COLORS["accent2"],
+            command=self._on_custom_toggle
+        )
+        self.custom_chk.pack(side="right")
+
+        self.preset_hint = ctk.CTkLabel(weights_frame, text="Baseado no uso selecionado",
+                                        font=ctk.CTkFont(size=10), text_color=COLORS["text_muted"])
+        self.preset_hint.pack(anchor="w", padx=12, pady=(0, 4))
+
+        # Quatro sliders
+        slider_defs = [
+            ("🔥 Desempenho", self.w_processor, COLORS["red"]),
+            ("📸 Câmera",     self.w_camera,    COLORS["accent"]),
+            ("🔋 Bateria",    self.w_battery,   COLORS["green"]),
+            ("💾 Armazen.",   self.w_storage,   COLORS["accent2"]),
+        ]
+        self.weight_value_labels = {}
+        self.weight_sliders = {}
+        for label, var, color in slider_defs:
             row = ctk.CTkFrame(weights_frame, fg_color="transparent")
-            row.pack(fill="x", padx=12, pady=1)
-            ctk.CTkLabel(row, text=label, font=ctk.CTkFont(size=11), text_color=COLORS["text_muted"], width=140, anchor="w").pack(side="left")
-            lbl = ctk.CTkLabel(row, text="0%", font=ctk.CTkFont(size=11, weight="bold"), text_color=COLORS["green"])
-            lbl.pack(side="right")
-            self.weight_labels[crit] = lbl
-        self._update_weight_labels()
+            row.pack(fill="x", padx=12, pady=(2, 0))
+            ctk.CTkLabel(row, text=label, font=ctk.CTkFont(size=11),
+                         text_color=COLORS["text_muted"], width=100, anchor="w").pack(side="left")
+            val_lbl = ctk.CTkLabel(row, text=f"{var.get()}%",
+                                   font=ctk.CTkFont(size=11, weight="bold"), text_color=color, width=36)
+            val_lbl.pack(side="right")
+            self.weight_value_labels[label] = val_lbl
 
-        ctk.CTkFrame(weights_frame, fg_color="transparent", height=6).pack()
+            sl = ctk.CTkSlider(
+                weights_frame, from_=0, to=100, variable=var,
+                progress_color=color, button_color=color,
+                button_hover_color=COLORS["accent2"], height=14,
+                command=lambda v, lbl=val_lbl, var_ref=var: self._on_weight_slide(v, lbl, var_ref),
+                state="disabled"
+            )
+            sl.pack(fill="x", padx=12, pady=(0, 4))
+            self.weight_sliders[label] = sl
+
+        # Indicador de total
+        self.total_label = ctk.CTkLabel(weights_frame, text="Total: 100%  ✅",
+                                        font=ctk.CTkFont(size=10, weight="bold"),
+                                        text_color=COLORS["green"])
+        self.total_label.pack(anchor="e", padx=12, pady=(0, 6))
+
+        self._refresh_weight_sliders()
 
         # ── Buscar
         ctk.CTkButton(
@@ -752,19 +1232,72 @@ class PhoneAdvisorApp(ctk.CTk):
                 btn.configure(fg_color=USE_CASES[k]["color"])
             else:
                 btn.configure(fg_color=COLORS["bg_dark"])
-        self._update_weight_labels()
+        # Atualiza sliders com os pesos do perfil de uso (se não estiver em modo custom)
+        if not self._use_custom_weights.get():
+            self._load_preset_weights(key)
+        self._refresh_weight_sliders()
 
-    def _update_weight_labels(self):
-        weights = USE_CASES[self.selected_use.get()]["weights"]
-        for crit, lbl in self.weight_labels.items():
-            pct = int(weights.get(crit, 0) * 100)
-            lbl.configure(text=f"{pct}%")
+    def _load_preset_weights(self, use_key):
+        w = USE_CASES[use_key]["weights"]
+        self.w_processor.set(int(w["processor_score"] * 100))
+        self.w_battery.set(int(w["battery_score"] * 100))
+        self.w_camera.set(int(w["camera_score"] * 100))
+        self.w_storage.set(int(w["storage_score"] * 100))
+
+    def _on_custom_toggle(self):
+        if not self._use_custom_weights.get():
+            # Voltou para modo preset — carrega pesos do uso atual
+            self._load_preset_weights(self.selected_use.get())
+        self._refresh_weight_sliders()
+
+    def _on_weight_slide(self, val, lbl, var_ref):
+        v = int(float(val))
+        var_ref.set(v)
+        lbl.configure(text=f"{v}%")
+        self._update_total_label()
+
+    def _update_total_label(self):
+        total = self.w_processor.get() + self.w_battery.get() + self.w_camera.get() + self.w_storage.get()
+        ok = abs(total - 100) <= 5
+        color = COLORS["green"] if ok else COLORS["red"]
+        icon = "✅" if ok else "⚠️"
+        self.total_label.configure(text=f"Total: {total}%  {icon}", text_color=color)
+
+    def _refresh_weight_sliders(self):
+        is_custom = self._use_custom_weights.get()
+        state = "normal" if is_custom else "disabled"
+        hint = "Pesos personalizados ativos" if is_custom else "Baseado no uso selecionado"
+        self.preset_hint.configure(text=hint)
+        for sl in self.weight_sliders.values():
+            sl.configure(state=state)
+        # Atualiza labels com valores atuais
+        labels_map = {
+            "🔥 Desempenho": self.w_processor,
+            "📸 Câmera":     self.w_camera,
+            "🔋 Bateria":    self.w_battery,
+            "💾 Armazen.":   self.w_storage,
+        }
+        for label, var in labels_map.items():
+            self.weight_value_labels[label].configure(text=f"{var.get()}%")
+        self._update_total_label()
+
+    def _get_active_weights(self):
+        """Retorna os pesos normalizados para uso no score."""
+        raw = {
+            "processor_score": self.w_processor.get(),
+            "battery_score":   self.w_battery.get(),
+            "camera_score":    self.w_camera.get(),
+            "storage_score":   self.w_storage.get(),
+        }
+        total = sum(raw.values()) or 100
+        return {k: v / total for k, v in raw.items()}
 
     # ─── Busca ────────────────────────────────────────────────────────
     def _run_search(self):
         price = self.price_var.get()
         use = self.selected_use.get()
-        self.results = get_recommendations(price, use, top_n=5)
+        custom_weights = self._get_active_weights()
+        self.results = get_recommendations(price, use, top_n=5, custom_weights=custom_weights)
         self.comparing = []
         self._update_compare_label()
         self._show_results()
@@ -1134,6 +1667,13 @@ class PhoneAdvisorApp(ctk.CTk):
                 "use_case": self.selected_use.get(),
                 "saved_at": datetime.now().strftime("%d/%m/%Y %H:%M"),
                 "results": [(p["name"], round(s, 1)) for p, s in self.results],
+                "custom_weights": {
+                    "processor_score": self.w_processor.get(),
+                    "battery_score":   self.w_battery.get(),
+                    "camera_score":    self.w_camera.get(),
+                    "storage_score":   self.w_storage.get(),
+                },
+                "use_custom": self._use_custom_weights.get(),
             }
             self.profiles[name] = profile_data
             save_profiles(self.profiles)
@@ -1189,6 +1729,18 @@ class PhoneAdvisorApp(ctk.CTk):
         self.price_var.set(pdata["price"])
         self._on_price_change(pdata["price"])
         self._select_use(pdata["use_case"])
+        # Restaura pesos salvos, se existirem
+        if pdata.get("use_custom") and pdata.get("custom_weights"):
+            cw = pdata["custom_weights"]
+            self.w_processor.set(cw.get("processor_score", 40))
+            self.w_battery.set(cw.get("battery_score", 25))
+            self.w_camera.set(cw.get("camera_score", 10))
+            self.w_storage.set(cw.get("storage_score", 25))
+            self._use_custom_weights.set(True)
+        else:
+            self._use_custom_weights.set(False)
+            self._load_preset_weights(pdata["use_case"])
+        self._refresh_weight_sliders()
         self.current_profile = pdata["name"]
         self.profile_label.configure(text=f"📂 {pdata['name']}", text_color=COLORS["accent"])
         win.destroy()
