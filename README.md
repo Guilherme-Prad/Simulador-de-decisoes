@@ -8,4 +8,5 @@ Kauê Gomes Neves Oliveira; RA: 1012614652 \
 Iago Pereira Souza; RA: 1012516823 \
 Kauan Lenonn do Nascimento Ribeiro; RA: 1012611091 \
 Célio Lorran Rodrigues Castro; RA: 1012615015 \
-Jonny Kaio Paes Alves; RA: 1012510996
+Jonny Kaio Paes Alves; RA: 1012510996 \
+Roberto marinho dos Santos; RA: Silva 1012522489
