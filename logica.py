@@ -13,10 +13,10 @@ def score_phone(phone: dict, use_case: str, max_price: int, custom_weights: dict
         + w["cpu_score"] * phone["cpu_score"]
         + w["storage"] * storage_score
     )
-    # use-case bonus (only when using preset weights)
+  
     if not custom_weights and use_case in phone["best_for"]:
         raw *= 1.12
-    # price efficiency
+    
     price_ratio = 1 - (phone["price"] / 20000) * 0.15
     return raw * price_ratio
 
