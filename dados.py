@@ -3,7 +3,7 @@ import os
 
 PROFILES_FILE = os.path.join(os.path.dirname(__file__), "profiles.json")
 
-# ─── Phone Database ─────────────────────────────────────────────────────────────
+
 PHONES = [
     {
         "name": "iPhone 16 Pro Max",
@@ -323,7 +323,6 @@ USE_CASES = {
 }
 
 
-# ─── Profile Storage ─────────────────────────────────────────────────────────────
 def load_profiles():
     if os.path.exists(PROFILES_FILE):
         with open(PROFILES_FILE, "r", encoding="utf-8") as f:
