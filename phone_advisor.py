@@ -5,14 +5,13 @@ import math
 from datetime import datetime
 import threading
 
-# ─── Configuração do tema ───────────────────────────────────────────────
+
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 PROFILES_FILE = "phone_profiles.json"
 
-# ─── Base de dados de celulares reais ───────────────────────────────────
-# caso queira adicionar mais celulares copie e cole a parte "name" ate "image_color" ponha a cor e iformaçao
+
 PHONES_DB = [
     {
         "name": "iPhone 15 Pro Max",
@@ -464,7 +463,7 @@ PHONES_DB = [
         "cons": ["Câmera não é destaque", "Realme UI com muitos apps", "Suporte menor que as grandes marcas"],
         "image_color": "#1A2E1A",
     },
-    # ── Novos celulares adicionados ──────────────────────────────────────
+
     {
         "name": "Samsung Galaxy S25 Ultra",
         "brand": "Samsung",
@@ -908,7 +907,7 @@ def score_phone(phone, use_case, max_price, custom_weights=None):
         + specs["camera_score"] * weights["camera_score"]
         + storage_score * weights["storage_score"]
     )
-    # Bônus custo-benefício (mais barato = mais pontos relativos)
+  
     price_ratio = phone["price"] / max_price
     value_bonus = (1 - price_ratio) * 5
     return round(total + value_bonus, 1)
@@ -935,7 +934,7 @@ def save_profiles(profiles):
         json.dump(profiles, f, ensure_ascii=False, indent=2)
 
 
-# ─── Paleta de cores ────────────────────────────────────────────────────
+
 COLORS = {
     "bg_dark": "#141820",
     "bg_card": "#1C2434",
@@ -956,8 +955,7 @@ COLORS = {
 MEDAL_COLORS = [COLORS["gold"], COLORS["silver"], COLORS["bronze"], "#6B9BD2", "#8B6B9B"]
 
 
-# ════════════════════════════════════════════════════════════════════════
-class PhoneAdvisorApp(ctk.CTk):
+
     def __init__(self):
         super().__init__()
         self.title("📱 PhoneAdvisor — Qual Celular Comprar?")
@@ -972,7 +970,7 @@ class PhoneAdvisorApp(ctk.CTk):
         self.price_var = ctk.IntVar(value=6000)
         self.comparing = []
 
-        # Sliders de peso personalizados (0–100, normalizados na busca)
+      
         self.w_processor = ctk.IntVar(value=40)
         self.w_battery = ctk.IntVar(value=25)
         self.w_camera = ctk.IntVar(value=10)
@@ -980,12 +978,12 @@ class PhoneAdvisorApp(ctk.CTk):
         self._use_custom_weights = ctk.BooleanVar(value=False)
 
         self._build_ui()
-        # Inicializa sliders com pesos do perfil padrão
+       
         self._load_preset_weights("jogos")
 
-    # ─── UI principal ─────────────────────────────────────────────────
+  
     def _build_ui(self):
-        # Header — compacto, 48px
+       
         header = ctk.CTkFrame(self, fg_color=COLORS["bg_card"], corner_radius=0, height=48)
         header.pack(fill="x")
         header.pack_propagate(False)
@@ -1004,7 +1002,7 @@ class PhoneAdvisorApp(ctk.CTk):
             text_color=COLORS["text_muted"],
         ).pack(side="left", padx=4)
 
-        # Profile buttons
+       
         self.profile_label = ctk.CTkLabel(header, text="Sem perfil", text_color=COLORS["text_muted"], font=ctk.CTkFont(size=11))
         self.profile_label.pack(side="right", padx=8)
         ctk.CTkButton(header, text="💾 Salvar", width=90, height=30, fg_color=COLORS["accent2"], hover_color=COLORS["accent3"],
@@ -1012,15 +1010,15 @@ class PhoneAdvisorApp(ctk.CTk):
         ctk.CTkButton(header, text="📂 Perfis", width=80, height=30, fg_color=COLORS["bg_card2"], hover_color=COLORS["border"],
                       command=self._open_profiles_dialog, corner_radius=6).pack(side="right", padx=4)
 
-        # Main layout
+        
         main = ctk.CTkFrame(self, fg_color="transparent")
         main.pack(fill="both", expand=True, padx=8, pady=8)
         main.columnconfigure(1, weight=1)
         main.rowconfigure(0, weight=1)
 
-        # Left panel (filters)
+      
         self._build_left_panel(main)
-        # Right panel (results)
+        
         self._build_right_panel(main)
 
     def _build_left_panel(self, parent):
@@ -1039,7 +1037,7 @@ class PhoneAdvisorApp(ctk.CTk):
         ctk.CTkLabel(panel, text="⚙️  Configurar Busca", font=ctk.CTkFont(size=13, weight="bold"),
                      text_color=COLORS["text"]).grid(row=0, column=0, padx=12, pady=(10, 4), sticky="w")
 
-        # ── Orçamento
+       
         budget_frame = ctk.CTkFrame(panel, fg_color=COLORS["bg_card2"], corner_radius=10)
         budget_frame.grid(row=1, column=0, padx=8, pady=4, sticky="ew")
         ctk.CTkLabel(budget_frame, text="💰 Orçamento máximo", font=ctk.CTkFont(size=11, weight="bold"),
@@ -1059,7 +1057,7 @@ class PhoneAdvisorApp(ctk.CTk):
         ctk.CTkLabel(price_row, text="R$ 800", font=ctk.CTkFont(size=9), text_color=COLORS["text_muted"]).pack(side="left")
         ctk.CTkLabel(price_row, text="R$ 20.000", font=ctk.CTkFont(size=9), text_color=COLORS["text_muted"]).pack(side="right")
 
-        # ── Uso
+       
         use_frame = ctk.CTkFrame(panel, fg_color=COLORS["bg_card2"], corner_radius=10)
         use_frame.grid(row=2, column=0, padx=8, pady=4, sticky="ew")
         ctk.CTkLabel(use_frame, text="🎯 Para qual uso?", font=ctk.CTkFont(size=11, weight="bold"),
@@ -1077,7 +1075,7 @@ class PhoneAdvisorApp(ctk.CTk):
             self.use_btns[key] = btn
         ctk.CTkFrame(use_frame, fg_color="transparent", height=4).pack()
 
-        # ── Pesos personalizados com sliders
+        
         weights_frame = ctk.CTkFrame(panel, fg_color=COLORS["bg_card2"], corner_radius=10)
         weights_frame.grid(row=3, column=0, padx=8, pady=4, sticky="ew")
 
@@ -1099,7 +1097,7 @@ class PhoneAdvisorApp(ctk.CTk):
                                         font=ctk.CTkFont(size=9), text_color=COLORS["text_muted"])
         self.preset_hint.pack(anchor="w", padx=10, pady=(0, 2))
 
-        # Quatro sliders
+        
         slider_defs = [
             ("🔥 Desempenho", self.w_processor, COLORS["red"]),
             ("📸 Câmera",     self.w_camera,    COLORS["accent"]),
@@ -1128,7 +1126,7 @@ class PhoneAdvisorApp(ctk.CTk):
             sl.pack(fill="x", padx=10, pady=(0, 2))
             self.weight_sliders[label] = sl
 
-        # Indicador de total
+        
         self.total_label = ctk.CTkLabel(weights_frame, text="Total: 100%  ✅",
                                         font=ctk.CTkFont(size=9, weight="bold"),
                                         text_color=COLORS["green"])
@@ -1136,7 +1134,7 @@ class PhoneAdvisorApp(ctk.CTk):
 
         self._refresh_weight_sliders()
 
-        # ── Buscar
+       
         ctk.CTkButton(
             panel, text="🔍  Encontrar Meu Celular", height=40,
             font=ctk.CTkFont(size=13, weight="bold"),
@@ -1145,7 +1143,7 @@ class PhoneAdvisorApp(ctk.CTk):
             command=self._run_search
         ).grid(row=4, column=0, padx=8, pady=8, sticky="ew")
 
-        # ── Compare
+      
         compare_frame = ctk.CTkFrame(panel, fg_color=COLORS["bg_card2"], corner_radius=10)
         compare_frame.grid(row=5, column=0, padx=8, pady=(0, 8), sticky="ew")
         ctk.CTkLabel(compare_frame, text="⚖️ Comparar selecionados", font=ctk.CTkFont(size=11, weight="bold"),
@@ -1164,7 +1162,7 @@ class PhoneAdvisorApp(ctk.CTk):
         panel.columnconfigure(0, weight=1)
         panel.rowconfigure(1, weight=1)
 
-        # Tabs
+      
         self.tab_view = ctk.CTkTabview(panel, fg_color=COLORS["bg_card"], corner_radius=12,
                                        segmented_button_fg_color=COLORS["bg_card2"],
                                        segmented_button_selected_color=COLORS["accent"],
@@ -1175,25 +1173,25 @@ class PhoneAdvisorApp(ctk.CTk):
         self.tab_details = self.tab_view.add("🔍  Detalhes")
         self.tab_all = self.tab_view.add("📋  Todos")
 
-        # ── Aba resultados
+      
         self.results_scroll = ctk.CTkScrollableFrame(self.tab_results, fg_color="transparent", corner_radius=0)
         self.results_scroll.pack(fill="both", expand=True)
 
-        # ── Aba detalhes
+       
         self.detail_scroll = ctk.CTkScrollableFrame(self.tab_details, fg_color="transparent", corner_radius=0)
         self.detail_scroll.pack(fill="both", expand=True)
         ctk.CTkLabel(self.detail_scroll, text="Clique em um celular nos Resultados para ver os detalhes.",
                      text_color=COLORS["text_muted"], font=ctk.CTkFont(size=13)).pack(pady=30)
 
-        # ── Aba todos
+      
         self.all_scroll = ctk.CTkScrollableFrame(self.tab_all, fg_color="transparent", corner_radius=0)
         self.all_scroll.pack(fill="both", expand=True)
         self._populate_all_phones()
 
-        # Initial welcome
+        
         self._show_welcome()
 
-    # ─── Welcome screen ───────────────────────────────────────────────
+    
     def _show_welcome(self):
         for w in self.results_scroll.winfo_children():
             w.destroy()
@@ -1223,7 +1221,7 @@ class PhoneAdvisorApp(ctk.CTk):
                          anchor="w").pack(anchor="w", padx=12, pady=1)
         ctk.CTkFrame(tips_frame, fg_color="transparent", height=8).pack()
 
-    # ─── Filtros ──────────────────────────────────────────────────────
+   
     def _on_price_change(self, val):
         v = int(float(val))
         self.price_display.configure(text=f"R$ {v:,.0f}".replace(",", "."))
@@ -1235,7 +1233,7 @@ class PhoneAdvisorApp(ctk.CTk):
                 btn.configure(fg_color=USE_CASES[k]["color"])
             else:
                 btn.configure(fg_color=COLORS["bg_dark"])
-        # Atualiza sliders com os pesos do perfil de uso (se não estiver em modo custom)
+        
         if not self._use_custom_weights.get():
             self._load_preset_weights(key)
         self._refresh_weight_sliders()
@@ -1249,7 +1247,7 @@ class PhoneAdvisorApp(ctk.CTk):
 
     def _on_custom_toggle(self):
         if not self._use_custom_weights.get():
-            # Voltou para modo preset — carrega pesos do uso atual
+            
             self._load_preset_weights(self.selected_use.get())
         self._refresh_weight_sliders()
 
@@ -1273,7 +1271,7 @@ class PhoneAdvisorApp(ctk.CTk):
         self.preset_hint.configure(text=hint)
         for sl in self.weight_sliders.values():
             sl.configure(state=state)
-        # Atualiza labels com valores atuais
+       
         labels_map = {
             "🔥 Desempenho": self.w_processor,
             "📸 Câmera":     self.w_camera,
@@ -1295,7 +1293,7 @@ class PhoneAdvisorApp(ctk.CTk):
         total = sum(raw.values()) or 100
         return {k: v / total for k, v in raw.items()}
 
-    # ─── Busca ────────────────────────────────────────────────────────
+  
     def _run_search(self):
         price = self.price_var.get()
         use = self.selected_use.get()
@@ -1318,7 +1316,7 @@ class PhoneAdvisorApp(ctk.CTk):
         use = self.selected_use.get()
         use_info = USE_CASES[use]
 
-        # Cabeçalho de resultados
+      
         hdr = ctk.CTkFrame(self.results_scroll, fg_color=COLORS["bg_card2"], corner_radius=10)
         hdr.pack(fill="x", padx=4, pady=(4, 6))
         ctk.CTkLabel(hdr, text=f"🏆  Top {len(self.results)} para {use_info['label']}",
@@ -1342,7 +1340,7 @@ class PhoneAdvisorApp(ctk.CTk):
         )
         card.pack(fill="x", padx=4, pady=3)
 
-        # Top row
+       
         top_row = ctk.CTkFrame(card, fg_color="transparent")
         top_row.pack(fill="x", padx=10, pady=(8, 2))
 
@@ -1361,7 +1359,7 @@ class PhoneAdvisorApp(ctk.CTk):
         ctk.CTkLabel(name_frame, text=phone["brand"] + "  •  " + phone["specs"]["os"],
                      font=ctk.CTkFont(size=10), text_color=COLORS["text_muted"]).pack(anchor="w")
 
-        # Score & price
+        
         right = ctk.CTkFrame(top_row, fg_color="transparent")
         right.pack(side="right")
 
@@ -1371,7 +1369,7 @@ class PhoneAdvisorApp(ctk.CTk):
         ctk.CTkLabel(right, text=f"R$ {phone['price']:,.0f}".replace(",", "."),
                      font=ctk.CTkFont(size=12, weight="bold"), text_color=COLORS["accent"]).pack(anchor="e")
 
-        # Spec bars row
+      
         bars_frame = ctk.CTkFrame(card, fg_color="transparent")
         bars_frame.pack(fill="x", padx=10, pady=2)
 
@@ -1392,7 +1390,7 @@ class PhoneAdvisorApp(ctk.CTk):
             ctk.CTkLabel(col, text=f"{val}", font=ctk.CTkFont(size=9, weight="bold"),
                          text_color=COLORS["text"]).pack(anchor="w")
 
-        # Highlights (só top)
+     
         if is_top and phone.get("highlights"):
             high_frame = ctk.CTkFrame(card, fg_color=COLORS["bg_dark"], corner_radius=6)
             high_frame.pack(fill="x", padx=10, pady=(4, 2))
@@ -1402,8 +1400,8 @@ class PhoneAdvisorApp(ctk.CTk):
                 ctk.CTkLabel(high_frame, text=f"  • {h}", font=ctk.CTkFont(size=10),
                              text_color=COLORS["text_muted"], anchor="w").pack(anchor="w", padx=8, pady=1)
             ctk.CTkFrame(high_frame, fg_color="transparent", height=4).pack()
-
-        # Buttons
+            
+       
         btn_row = ctk.CTkFrame(card, fg_color="transparent")
         btn_row.pack(fill="x", padx=10, pady=(4, 8))
 
@@ -1413,7 +1411,7 @@ class PhoneAdvisorApp(ctk.CTk):
                       command=lambda p=phone, s=score, u=use: self._show_detail(p, s, u)
                       ).pack(side="left", padx=(0, 8))
 
-        # Compare checkbox
+      
         var = ctk.BooleanVar(value=phone["name"] in [c["name"] for c in self.comparing])
         chk = ctk.CTkCheckBox(btn_row, text="⚖️ Comparar", variable=var, font=ctk.CTkFont(size=10),
                               text_color=COLORS["text_muted"], checkbox_width=16, checkbox_height=16,
@@ -1438,18 +1436,18 @@ class PhoneAdvisorApp(ctk.CTk):
             names = ", ".join(p["name"].split()[-1] for p in self.comparing)
             self.compare_label.configure(text=f"{len(self.comparing)} selecionados: {names}")
 
-    # ─── Detalhes ─────────────────────────────────────────────────────
+   
     def _show_detail(self, phone, score, use):
         for w in self.detail_scroll.winfo_children():
             w.destroy()
 
         self.tab_view.set("🔍  Detalhes")
 
-        # Header
+       
         hdr = ctk.CTkFrame(self.detail_scroll, fg_color=phone["image_color"], corner_radius=12)
         hdr.pack(fill="x", padx=4, pady=(4, 6))
 
-        # Header content in two columns for density
+       
         hdr_inner = ctk.CTkFrame(hdr, fg_color="transparent")
         hdr_inner.pack(fill="x", padx=16, pady=12)
         hdr_left = ctk.CTkFrame(hdr_inner, fg_color="transparent")
@@ -1466,13 +1464,13 @@ class PhoneAdvisorApp(ctk.CTk):
         ctk.CTkLabel(hdr_right, text=f"R$ {phone['price']:,.0f}".replace(",", "."),
                      font=ctk.CTkFont(size=22, weight="bold"), text_color=COLORS["gold"]).pack(anchor="e")
 
-        # Specs grid + score bars side by side
+        
         two_col = ctk.CTkFrame(self.detail_scroll, fg_color="transparent")
         two_col.pack(fill="x", padx=4, pady=2)
         two_col.columnconfigure(0, weight=1)
         two_col.columnconfigure(1, weight=1)
 
-        # Specs grid
+       
         specs_frame = ctk.CTkFrame(two_col, fg_color=COLORS["bg_card2"], corner_radius=10)
         specs_frame.grid(row=0, column=0, padx=(0, 4), sticky="nsew")
         ctk.CTkLabel(specs_frame, text="📋 Especificações",
@@ -1497,7 +1495,7 @@ class PhoneAdvisorApp(ctk.CTk):
             ctk.CTkLabel(row_f, text=val, font=ctk.CTkFont(size=10, weight="bold"), text_color=COLORS["text"], anchor="e", wraplength=180).pack(side="right", padx=8, pady=4)
         ctk.CTkFrame(specs_frame, fg_color="transparent", height=6).pack()
 
-        # Score bars
+        
         bars_frame = ctk.CTkFrame(two_col, fg_color=COLORS["bg_card2"], corner_radius=10)
         bars_frame.grid(row=0, column=1, padx=(4, 0), sticky="nsew")
         ctk.CTkLabel(bars_frame, text="📊 Pontuações",
@@ -1522,7 +1520,7 @@ class PhoneAdvisorApp(ctk.CTk):
             prog.set(val / 100)
         ctk.CTkFrame(bars_frame, fg_color="transparent", height=6).pack()
 
-        # Por que foi escolhido
+      
         why_frame = ctk.CTkFrame(self.detail_scroll, fg_color=COLORS["bg_card2"], corner_radius=10)
         why_frame.pack(fill="x", padx=4, pady=4)
         ctk.CTkLabel(why_frame, text=f"✨  Por que o {phone['name'].split()[0]} {phone['name'].split()[1]} é bom para {USE_CASES[use]['label']}?",
@@ -1533,7 +1531,7 @@ class PhoneAdvisorApp(ctk.CTk):
                          anchor="w", wraplength=700, justify="left").pack(anchor="w", padx=10, pady=1)
         ctk.CTkFrame(why_frame, fg_color="transparent", height=6).pack()
 
-        # Pros e Cons
+        
         pc_frame = ctk.CTkFrame(self.detail_scroll, fg_color="transparent")
         pc_frame.pack(fill="x", padx=4, pady=4)
         pc_frame.columnconfigure(0, weight=1)
@@ -1559,7 +1557,7 @@ class PhoneAdvisorApp(ctk.CTk):
 
         ctk.CTkFrame(self.detail_scroll, fg_color="transparent", height=10).pack()
 
-    # ─── Aba todos ────────────────────────────────────────────────────
+    
     def _populate_all_phones(self):
         ctk.CTkLabel(self.all_scroll, text="📋  Todos os celulares disponíveis",
                      font=ctk.CTkFont(size=13, weight="bold"), text_color=COLORS["accent"]).pack(anchor="w", padx=8, pady=(6, 2))
@@ -1584,7 +1582,7 @@ class PhoneAdvisorApp(ctk.CTk):
             ctk.CTkLabel(row, text=f"R$ {phone['price']:,.0f}".replace(",", "."),
                          font=ctk.CTkFont(size=14, weight="bold"), text_color=COLORS["gold"]).pack(side="right", padx=6)
 
-    # ─── Comparação ───────────────────────────────────────────────────
+    
     def _open_compare_window(self):
         if len(self.comparing) < 2:
             self._show_toast("Selecione pelo menos 2 celulares para comparar!")
@@ -1605,7 +1603,7 @@ class PhoneAdvisorApp(ctk.CTk):
         phones = self.comparing
         cols = len(phones) + 1
 
-        # Header phones
+        
         for i, phone in enumerate(phones):
             f = ctk.CTkFrame(scroll, fg_color=phone["image_color"], corner_radius=12)
             f.grid(row=0, column=i + 1, padx=4, pady=4, sticky="ew")
@@ -1616,7 +1614,7 @@ class PhoneAdvisorApp(ctk.CTk):
             ctk.CTkLabel(f, text=f"R$ {phone['price']:,.0f}".replace(",", "."),
                          font=ctk.CTkFont(size=15, weight="bold"), text_color=COLORS["gold"]).pack(pady=(2, 10))
 
-        # Rows of specs
+        
         compare_rows = [
             ("Processador", lambda p: p["specs"]["processor"], None),
             ("Score Processador", lambda p: str(p["specs"]["processor_score"]) + "/100", "processor_score"),
@@ -1667,7 +1665,7 @@ class PhoneAdvisorApp(ctk.CTk):
         ctk.CTkLabel(scroll, text="✅ Verde = melhor resultado neste critério", font=ctk.CTkFont(size=11),
                      text_color=COLORS["text_muted"]).grid(row=len(compare_rows) + 2, column=0, columnspan=cols, pady=12)
 
-    # ─── Perfis ───────────────────────────────────────────────────────
+   
     def _save_profile_dialog(self):
         dialog = ctk.CTkInputDialog(text="Nome do perfil:", title="Salvar Perfil")
         name = dialog.get_input()
@@ -1765,8 +1763,7 @@ class PhoneAdvisorApp(ctk.CTk):
             win.destroy()
             self._open_profiles_dialog()
 
-    # ─── Toast ────────────────────────────────────────────────────────
-    def _show_toast(self, msg):
+   
         toast = ctk.CTkToplevel(self)
         toast.overrideredirect(True)
         toast.configure(fg_color=COLORS["bg_card2"])
@@ -1778,7 +1775,6 @@ class PhoneAdvisorApp(ctk.CTk):
         toast.after(2500, toast.destroy)
 
 
-# ════════════════════════════════════════════════════════════════════════
-if __name__ == "__main__":
+
     app = PhoneAdvisorApp()
     app.mainloop()
